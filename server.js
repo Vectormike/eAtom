@@ -1,5 +1,9 @@
-const express = require('express')
+const express = require('express');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser')
 const app = express();
+
+app.use(bodyParser.json());
 
 //Test
 app.get('/api/details', (req, res) => {
