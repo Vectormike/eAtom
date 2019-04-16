@@ -4,11 +4,14 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "client-install": "cd client && npm install",
     "start": "node server.js",
-    "server": "nodemon server.js"
+    "server": "nodemon server.js",
+    "client": "cd client && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "keywords": [],
-  "author": "",
+  "author": "Victor Jonah",
   "license": "ISC",
   "dependencies": {
     "concurrently": "^4.1.0",
