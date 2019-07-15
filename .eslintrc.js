@@ -1,9 +1,11 @@
 module.exports = {
-  env: {
-    browser: true,
-    es6: true,
+  "extends": ["airbnb", "prettier"],
+  "env": {
+      "node": true,
+      "browser": true,
+      "es6": true,
+      "mocha": true
   },
-  extends: ["airbnb", "prettier"],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
@@ -13,5 +15,11 @@ module.exports = {
     sourceType: 'module',
   },  
   rules: {
-  },
+    "linebreak-style": ["error", "windows"],
+    "class-methods-use-this": 0,
+    "object-curly-newline": 0,
+    "array-callback-return": 0,
+    "consistent-return": 0,
+    "prefer-destructuring": 0
+  }
 };
