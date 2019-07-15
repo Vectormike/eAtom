@@ -15,7 +15,6 @@ module.exports = {
     sourceType: 'module',
   },  
   rules: {
-    "linebreak-style": ["error", "windows"],
     "class-methods-use-this": 0,
     "object-curly-newline": 0,
     "array-callback-return": 0,
