@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 
-export default = new Sequelize('database', 'username', 'password', {
+module.exports = new Sequelize('eAtom', 'postgres', '0000', {
   host: 'localhost',
   dialect: 'postgres',
   operatorsAliases: false,
