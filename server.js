@@ -1,7 +1,9 @@
 import express from 'express';
+
 import bodyParser from 'body-parser';
 
 import db from './server/database/dbConfig';
+import route from './server/routes/index';
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -23,4 +25,6 @@ app.get('/api/details', (req, res) => {
   res.json(details);
 });
 
+// Home router
+app.use('api', route)
 app.listen(port, () => console.log(`Server running on port ${port}`));
