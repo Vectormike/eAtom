@@ -17,6 +17,11 @@ export default class UserController {
           email: user.email,
         },
       });
-    });
+    }).catch(err => {
+        res.json({
+            status: err.status,
+            message: 'no user created'
+        })
+    })
   }
 }
