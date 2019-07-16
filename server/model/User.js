@@ -2,11 +2,11 @@ import Sequelize from 'sequelize';
 import db from '../database/dbConfig';
 
 const User = db.define('user', {
-    l_name: {
+    lastname: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    f_name: {
+    firstname: {
         type: Sequelize.STRING,
         allowNull: false
     },
