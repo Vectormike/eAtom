@@ -1,5 +1,9 @@
 import express from 'express';
 
+import userController from '../Controller/userController';
+
+const { register } = userController;
+
 const router = express.Router();
 
 // Welcome page
@@ -10,10 +14,6 @@ router.get('/', (req, res) => {
 });
 
 // Register user
-router.post('/register', (req, res) => {
-  res.json({
-    message: 'Registration successful!'
-  })
-});
+router.post('/register', register);
 
 export default router;
