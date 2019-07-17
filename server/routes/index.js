@@ -1,6 +1,6 @@
 import express from 'express';
 
-import userController from '../Controller/userController';
+import userController from '../controllers/userController';
 
 const { register } = userController;
 
