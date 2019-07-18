@@ -13,8 +13,8 @@ export default class UserController {
     // Encryption of password will go here
 
     User.create({
-      lastname,
-      firstname,
+      lastName: lastname,
+      firstName: firstname,
       email,
       password,
     })
@@ -27,16 +27,15 @@ export default class UserController {
         res.json({
           message: 'User created & succesful!',
           user: {
-            lastname: user.lastname,
-            firstname: user.firstname,
+            lastname: user.lastName,
+            firstname: user.firstName,
             email: user.email,
           },
         });
       })
       .catch(err => {
-        res.json({
-          status: err.status,
-          message: 'no user created',
+        res.status(400).json({
+          message: err
         });
       });
   }
