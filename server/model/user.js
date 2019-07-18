@@ -1,22 +1,22 @@
-import Sequelize from 'sequelize';
+import Sequelize, { DataTypes } from 'sequelize';
 import db from '../database/dbConfig';
 
 const User = db.define('User', {
-    lastname: {
-        type: Sequelize.STRING,
-        allowNull: false
+    lastName: {
+        type: DataTypes.STRING,
+        allowNull: true
     },
-    firstname: {
-        type: Sequelize.STRING,
-        allowNull: false
+    firstName: {
+        type: DataTypes.STRING,
+        allowNull: true
     },
     email: {
-        type: Sequelize.STRING,
-        allowNull: false
+        type: DataTypes.STRING,
+        allowNull: true
     },
     password: {
-        type: Sequelize.STRING,
-        allowNull: false
+        type: DataTypes.STRING,
+        allowNull: true
     }
 })
 
