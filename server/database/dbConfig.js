@@ -1,9 +1,9 @@
 const Sequelize = require('sequelize');
 
 module.exports = new Sequelize(
-  'eAtom',
-  'postgres',
-  '0000',
+  'eatom',
+  'vectormike',
+  '1234',
 
   {
     host: 'localhost',
