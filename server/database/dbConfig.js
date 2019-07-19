@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 
-module.exports = new Sequelize(
+const config = new Sequelize(
   'eatom',
   'vectormike',
   '1234',
@@ -18,3 +18,5 @@ module.exports = new Sequelize(
     },
   },
 );
+
+export default config;
