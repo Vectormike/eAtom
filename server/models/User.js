@@ -1,27 +1,14 @@
+import Pool from '../database/dbConfig';
 
-
-export default (sequelize, DataTypes) => {
-  const User = sequelize.define('User', {
-    lastName: {
-      type: DataTypes.STRING,
-      unique: true,
-      allowNull: false,
-    },
-    firstName: {
-      type: DataTypes.STRING,
-      unique: true,
-      allowNull: false,
-    },
-    email: {
-      type: DataTypes.STRING,
-      unique: true,
-      allowNull: false,
-    },
-    password: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-  });
-  User.associate = function(models) {};
-  return User;
-};
+export default class User {
+  static registerUser(details) {
+    const { lastname, firstname, email } = details;
+    return new Promise((resolve, reject) => {
+      Pool.query(
+        `INSERT INTO Users (lastName, firstName, email, ) VALUES ('${lastname}, ${firstname}, ${email}')`,
+      )
+      .then(res => resolve(res))
+      .catch(err => reject(err))
+    });
+  }
+}
