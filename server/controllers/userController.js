@@ -19,11 +19,6 @@ export default class UserController {
       password,
     })
       .then(user => {
-        if (!user) {
-          res.status(500).json({
-            message: 'Error occured',
-          });
-        }
         res.json({
           message: 'User created & succesful!',
           user: {
