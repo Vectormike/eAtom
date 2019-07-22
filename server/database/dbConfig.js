@@ -22,8 +22,17 @@
 // export default config;
 
 import { Pool } from 'pg';
+import dotenv from 'dotenv';
 
-const dotenv = require('dotenv').config();
+dotenv.config();
+
+const res = dotenv.config();
+
+if (res.error) {
+  throw res.error;
+}
+console.log(res.parsed);
+
 
 let connectionString;
 if (process.env.NODE_ENV === 'test') {
@@ -41,9 +50,10 @@ const pool = new Pool({ connectionString });
 export default {
   query(queries) {
     return new Promise((resolve, reject) => {
-      pool.query(queries)
-      .then(res => resolve(res))
-      .catch(err => reject(err))
-    })
-  }
-}
+      pool
+        .query(queries)
+        .then(res => resolve(res))
+        .catch(err => reject(err));
+    });
+  },
+};
