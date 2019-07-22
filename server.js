@@ -1,7 +1,9 @@
 /* eslint-disable no-console */
 import express from 'express';
 
-import bodyParser from 'body-parser';
+
+// Log request
+import logger from 'morgan';
 
 import db from './server/database/dbConfig';
 
@@ -12,9 +14,10 @@ const app = express();
 const port = process.env.PORT || 6000;
 
 // Enforce Body parser
-app.use(
-  express.json(),
-);
+app.use(express.json());
+
+// Enforce logger
+app.use(logger('dev'));
 
 // Test database connection
 db.authenticate()
