@@ -42,7 +42,7 @@ export default {
   query(queries) {
     return new Promise((resolve, reject) => {
       pool.query(queries)
-      .then(res => resolve(res))q
+      .then(res => resolve(res))
       .catch(err => reject(err))
     })
   }
