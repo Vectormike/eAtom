@@ -5,7 +5,7 @@ import express from 'express';
 // Log request
 import logger from 'morgan';
 
-import db from './server/database/dbConfig';
+// import db from './server/database/dbConfig';
 
 // Routes
 import router from './server/routes/index';
@@ -20,13 +20,6 @@ app.use(express.json());
 app.use(logger('dev'));
 
 // Test database connection
-db.authenticate()
-  .then(() => {
-    console.log('Connection is OK');
-  })
-  .catch(err => {
-    console.log(`Unable to connect ${err}`);
-  });
 
 // Test
 app.get('/test', (req, res) => {
