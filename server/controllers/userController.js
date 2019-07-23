@@ -1,37 +1,21 @@
 import User from '../models/User';
 
+const { registerUser } = User;
+
 export default class UserController {
   static register(req, res) {
-    const 
-    { 
-      lastname, 
-      firstname, 
-      email, 
-      password 
-    } = req.body;
+    const { lastname, firstname, email, password } = req.body;
 
-    // Encryption of password will go here
-
-    User.create({
-      lastName: lastname,
-      firstName: firstname,
+    const userDetails = {
+      lastname,
+      firstname,
       email,
       password,
-    })
-      .then(user => {
-        res.json({
-          message: 'User created & succesful!',
-          user: {
-            lastname: user.lastName,
-            firstname: user.firstName,
-            email: user.email,
-          },
-        });
-      })
-      .catch(err => {
-        res.status(400).json({
-          message: err
-        });
-      });
+    };
+
+    registerUser(userDetails)
+      .then(result => console.log(result))
+      .catch(err => console.log(err));
+    // Encryption of password will go here
   }
 }
