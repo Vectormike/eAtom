@@ -30,6 +30,7 @@ const res = dotenv.config();
 
 if (res.error) {
   throw res.error;
+  console.log('Error is ')
 }
 
 

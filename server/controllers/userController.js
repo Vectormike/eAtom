@@ -14,8 +14,14 @@ export default class UserController {
     };
 
     registerUser(userDetails)
-      .then(result => console.log(result))
-      .catch(err => console.log(err));
-    // Encryption of password will go here
+      .then(results =>
+        res.status.json({
+          message: 'Account created',
+        }),
+      )
+      .catch(err => res.status(500).json({
+        error: err.message
+      }));
+
   }
 }
