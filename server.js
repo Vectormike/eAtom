@@ -1,17 +1,13 @@
-/* eslint-disable no-console */
 import express from 'express';
-
-
-// Log request
 import logger from 'morgan';
-
-// import db from './server/database/dbConfig';
-
-// Routes
+import { database } from './server/database/dbConfig';
 import router from './server/routes/index';
 
 const app = express();
 const port = process.env.PORT || 6000;
+
+// Test database
+console.log(database.select('*').from('users'));
 
 // Enforce Body parser
 app.use(express.json());
