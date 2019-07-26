@@ -21,4 +21,26 @@ export default class UserController {
       )
       .catch(err => res.status(400).json('Unable to register'));
   }
+
+  // User login
+  static login(req, res) {
+    const { email, password } = req.body;
+
+    database
+      .select('*')
+      .from('user')
+      .where({
+        email,
+        password,
+      })
+      .then(user => {
+        if(!user) {
+          res.json({
+            message: 'Incorrect email & password'
+          })
+        }
+        return res.json('Login successful')
+      })
+      .catch(err => res.status(400).json('Unable to login'));
+  }
 }
