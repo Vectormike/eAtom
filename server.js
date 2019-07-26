@@ -7,10 +7,6 @@ const app = express();
 const port = process.env.PORT || 6000;
 
 // Test database
-database
-  .select('*')
-  .from('user')
-  .then(data => console.log(data));
 
 // Enforce Body parser
 app.use(express.json());
