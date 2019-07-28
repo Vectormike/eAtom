@@ -44,11 +44,11 @@ export default class UserController {
     const { email, password } = req.body;
 
     database
-      .select('*')
+      .select('email', 'hash')
       .from('login')
-      .where({
-        email,
-      })
+      .where(
+        'email', '=', email
+      )
       .then(data => {
         const valid = bcrypt.compareSync(password, data.hash);
         if (valid) {
@@ -61,6 +61,6 @@ export default class UserController {
           })
         }
       })
-      .catch(err => res.status(400).json('Unable to login'));
+      .catch(err => res.status(400).json('Unable to login' +err));
   }
 }
