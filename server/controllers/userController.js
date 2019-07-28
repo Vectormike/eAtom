@@ -36,7 +36,7 @@ export default class UserController {
           .then(trx.commit)
           .catch(trx.rollback);
       })
-      .catch(err => res.status(400).json('Unable to register' + err));
+      .catch(err => res.status(400).json('Unable to register'));
   }
 
   // User login
@@ -45,18 +45,21 @@ export default class UserController {
 
     database
       .select('*')
-      .from('user')
+      .from('login')
       .where({
         email,
-        password,
       })
-      .then(user => {
-        if (!user) {
+      .then(data => {
+        const valid = bcrypt.compareSync(password, data.hash);
+        if (valid) {
           res.json({
-            message: 'Incorrect email & password',
-          });
+            message: 'Login succesful'
+          })
+        } else {
+          res.status(400).json({
+            message: 'Invalid details'
+          })
         }
-        return res.json('Login successful');
       })
       .catch(err => res.status(400).json('Unable to login'));
   }
