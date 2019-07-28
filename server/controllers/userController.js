@@ -12,8 +12,8 @@ export default class UserController {
       .transaction(trx => {
         trx
           .insert({
-            hash: hash,
-            email: email,
+            hash,
+            email,
           })
           .into('login')
           .returning('email')
@@ -23,7 +23,7 @@ export default class UserController {
               .insert({
                 lastName: lastname,
                 firstName: firstname,
-                email: loginEmail,
+                email: loginEmail[0],
                 createdAt: new Date(),
               });
           })
@@ -32,11 +32,11 @@ export default class UserController {
               data,
               message: 'User created',
             }),
-          );
+          )
           .then(trx.commit)
-          .catch(trx.rollback)
+          .catch(trx.rollback);
       })
-      .catch(err => res.status(400).json('Unable to register'));
+      .catch(err => res.status(400).json('Unable to register' + err));
   }
 
   // User login
