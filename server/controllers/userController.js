@@ -46,21 +46,19 @@ export default class UserController {
     database
       .select('email', 'hash')
       .from('login')
-      .where(
-        'email', '=', email
-      )
+      .where('email', '=', email)
       .then(data => {
-        const valid = bcrypt.compareSync(password, data.hash);
+        const valid = bcrypt.compareSync(password, data[0].hash);
         if (valid) {
           res.json({
-            message: 'Login succesful'
-          })
+            message: 'Login succesful',
+          });
         } else {
           res.status(400).json({
-            message: 'Invalid details'
-          })
+            message: 'Invalid details',
+          });
         }
       })
-      .catch(err => res.status(400).json('Unable to login' +err));
+      .catch(err => res.status(400).json('Unable to login' + err));
   }
 }
