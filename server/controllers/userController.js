@@ -1,5 +1,6 @@
-import { database } from '../database/dbConfig';
 import bcrypt from 'bcrypt';
+import { database } from '../database/dbConfig';
+
 const saltRounds = 10;
 const salt = bcrypt.genSaltSync(saltRounds);
 
@@ -28,7 +29,7 @@ export default class UserController {
               });
           })
           .then(data =>
-            res.json({
+            res.status(201).json({
               data,
               message: 'User created',
             }),
@@ -50,15 +51,15 @@ export default class UserController {
       .then(data => {
         const valid = bcrypt.compareSync(password, data[0].hash);
         if (valid) {
-          res.json({
+          res.status(202).json({
             message: 'Login succesful',
           });
         } else {
-          res.status(400).json({
+          res.status(401).json({
             message: 'Invalid details',
           });
         }
       })
-      .catch(err => res.status(400).json('Unable to login' + err));
+      .catch(err => res.status(400).json('Unable to login'));
   }
 }
