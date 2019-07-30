@@ -4,13 +4,13 @@ export default function Navbar() {
   return (
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="to">
-        Navbar
+        eAtom
       </a>
       <button
         class="navbar-toggler"
         type="button"
         data-toggle="collapse"
-        data-target="tonavbarSupportedContent"
+        data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent"
         aria-expanded="false"
         aria-label="Toggle navigation"
@@ -86,6 +86,15 @@ export default function Navbar() {
             Search
           </button>
         </form>
+        <div>
+          <button>
+            <i class="fas fa-shopping-cart" />
+          </button>
+
+          <button>
+            <i class="fas fa-user" />
+          </button>
+        </div>
       </div>
     </nav>
   );
