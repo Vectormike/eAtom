@@ -2,26 +2,26 @@ import React from 'react';
 
 export default function Show() {
   return (
-    <div className="container">
+    <div className="">
       <div className="row">
-        <div class="col card" style={{ width: '18rem' }}>
+        <div class="col-sm-3" style={{ }}>
           <img
-            src="../Shows/images/new-arrivals.jpg"
-            class="card-img-top"
+            src="https://res.cloudinary.com/vectormike/image/upload/v1564498173/new-arrivals.jpg"
+            class=""
             alt="New Arrivals"
           />
         </div>
-        <div class="col-6 card" style={{ width: '18rem' }}>
+        <div class="col-sm-4" style={{ }}>
           <img
-            src="../Shows/images/new-arrivals.jpg"
-            class="card-img-top"
+            src="https://res.cloudinary.com/vectormike/image/upload/v1564498173/new-arrivals.jpg"
+            class=""
             alt="..."
           />
         </div>
-        <div class="col card" style={{ width: '18rem' }}>
+        <div class="col-sm-3" style={{ }}>
           <img
-            src="../Shows/images/new-arrivals.jpg"
-            class="card-img-top"
+            src="https://res.cloudinary.com/vectormike/image/upload/v1564498173/new-arrivals.jpg"
+            class=""
             alt="..."
           />
         </div>
