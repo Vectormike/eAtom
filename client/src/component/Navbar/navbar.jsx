@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Navbar() {
   return (
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="fixed-top navbar navbar-expand-lg navbar-dark bg-dark">
       <a class="navbar-brand" href="to">
         eAtom
       </a>
@@ -63,7 +63,7 @@ export default function Navbar() {
           </li>
           <li class="nav-item">
             <a
-              class="nav-link disabled"
+              class="nav-link"
               href="to"
               tabindex="-1"
               aria-disabled="true"
@@ -72,26 +72,26 @@ export default function Navbar() {
             </a>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input
-            class="form-control mr-sm-2"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-          />
-          <button
-            class="btn btn-outline-success my-2 my-sm-0"
-            type="submit"
-          >
-            Search
-          </button>
-        </form>
         <div>
-          <button>
+          <form class="form-inline my-2 my-lg-0">
+            <input
+              class="form-control mr-sm-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button
+              class="btn btn-outline-success my-2 my-sm-0"
+              type="submit"
+            >
+              Search
+            </button>
+          </form>
+          <button class="float-right">
             <i class="fas fa-shopping-cart" />
           </button>
 
-          <button>
+          <button class="float-left">
             <i class="fas fa-user" />
           </button>
         </div>
