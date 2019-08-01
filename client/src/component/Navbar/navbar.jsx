@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Navbar() {
   return (
     <nav class="fixed-top navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="to">
+      <Link class="navbar-brand" to="/">
         eAtom
-      </a>
+      </Link>
       <button
         class="navbar-toggler"
         type="button"
@@ -24,9 +25,9 @@ export default function Navbar() {
       >
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="to">
+            <Link class="nav-link" to="/login">
               Home <span class="sr-only">(current)</span>
-            </a>
+            </Link>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="to">
@@ -90,10 +91,11 @@ export default function Navbar() {
           <button class="float-right">
             <i class="fas fa-shopping-cart" />
           </button>
-
-          <button class="float-left">
-            <i class="fas fa-user" />
-          </button>
+          <Link to="/login/">
+            <button class="float-left">
+              <i class="fas fa-user" />
+            </button>
+          </Link>
         </div>
       </div>
     </nav>
