@@ -9,10 +9,7 @@ export default function Footer() {
             <h5>Connect</h5>
             <ul>
               <li>
-                <i
-                  class="fab fa-facebook"
-                  aria-hidden="true"
-                />
+                <i class="fab fa-facebook" aria-hidden="true" />
               </li>
               <li>
                 <i class="fab fa-instagram" aria-hidden="true" />
