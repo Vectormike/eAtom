@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './login.css';
 import Footer from '../Footer/footer';
 import Navbar from '../Navbar/navbar';
@@ -54,9 +55,11 @@ class Login extends Component {
                       />
                     </label>
                   </div>
+                  <Link to="/dashboard">
                   <button type="submit" class="btn btn-primary">
                     Submit
                   </button>
+                  </Link>
                 </form>
               </div>
             </div>
