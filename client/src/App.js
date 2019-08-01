@@ -1,19 +1,15 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router';
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
-import Navbar from './component/Navbar/navbar';
-import Shows from './component/Shows/shows';
-import Footer from './component/Footer/footer';
+import Home from './component/Home/home';
+import Login from './component/Login/login';
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Navbar />
-        <Shows />
-        <Footer />
-      </div>
-    </Router>
+    <div>
+      <Route exact path="/" component={Home} />
+      <Route path="/login" component={Login} />
+    </div>
   );
 }
 
