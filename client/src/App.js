@@ -6,10 +6,10 @@ import Login from './component/Login/login';
 
 function App() {
   return (
-    <div>
+    <Switch>
       <Route exact path="/" component={Home} />
       <Route path="/login" component={Login} />
-    </div>
+    </Switch>
   );
 }
 
