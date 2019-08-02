@@ -9,7 +9,7 @@ class Dashboard extends Component {
       <div class="container">
         <Navbar />
         <div class="dashboard">
-          <h1>Your Orders</h1>
+          <h1 class="text-center">Your Orders</h1>
           <div class="status">
             <div class="row">
               <div class="col-md-6">
@@ -34,8 +34,8 @@ class Dashboard extends Component {
                     <tbody>
                       <tr>
                         <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Mark</td>
+                        <td>1/8/19</td>
+                        <td>Delivered</td>
                         <td>
                           <button
                             type="button"
