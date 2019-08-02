@@ -1,13 +1,16 @@
 import express from 'express';
 import logger from 'morgan';
+import cors from 'cors';
 import { database } from './server/database/dbConfig';
-import router from './server/routes/index';
+import home from './server/routes/index';
 
 const app = express();
-const port = process.env.PORT || 6000;
+const port = process.env.PORT || 5000;
 
 // Test database
 
+//Enforce cors
+app.use(cors());
 // Enforce Body parser
 app.use(express.json());
 
@@ -23,6 +26,6 @@ app.get('/test', (req, res) => {
 });
 
 // Home router
-app.use('/', router);
+app.use('/', home);
 
 app.listen(port, () => console.log(`Server running on port ${port}`));
