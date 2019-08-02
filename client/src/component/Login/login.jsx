@@ -5,18 +5,30 @@ import Footer from '../Footer/footer';
 import Navbar from '../Navbar/navbar';
 
 class Login extends Component {
+  constructor() {
+    super();
+
+    this.state = {};
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:5000/test')
+      .then(response => response.json())
+      .then(console.log);
+  }
+
   render() {
     return (
-      <div class="loginRegister">
+      <div className="loginRegister">
         <Navbar />
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="login border">
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-md-6">
+              <div className="login border">
                 <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb">
+                  <ol className="breadcrumb">
                     <li
-                      class="breadcrumb-item active"
+                      className="breadcrumb-item active"
                       aria-current="page"
                     >
                       LOGIN
@@ -34,41 +46,41 @@ class Login extends Component {
                   Velit ipsum sint eiusmod cillum dolore esse sit.
                 </p>
                 <hr />
-                <form class="text-center">
-                  <div class="form-group">
-                    <label for="InputEmail">
+                <form className="text-center">
+                  <div className="form-group">
+                    <label htmlFor="InputEmail">
                       <input
                         type="email"
-                        class="form-control"
+                        className="form-control"
                         id="email"
                         aria-describedby="emailHelp"
                         placeholder="Email Address"
                       />
                     </label>
                   </div>
-                  <div class="form-group">
-                    <label for="password">
+                  <div className="form-group">
+                    <label htmlFor="password">
                       <input
                         type="password"
-                        class="form-control"
+                        className="form-control"
                         placeholder="Password"
                       />
                     </label>
                   </div>
                   <Link to="/dashboard">
-                  <button type="submit" class="btn btn-primary">
-                    Submit
-                  </button>
+                    <button type="submit" className="btn btn-primary">
+                      Submit
+                    </button>
                   </Link>
                 </form>
               </div>
             </div>
-            <div class="col-md-6">
-              <div class="register border">
+            <div className="col-md-6">
+              <div className="register border">
                 <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb">
+                  <ol className="breadcrumb">
                     <li
-                      class="breadcrumb-item active"
+                      className="breadcrumb-item active"
                       aria-current="page"
                     >
                       Register
@@ -86,61 +98,61 @@ class Login extends Component {
                   Velit ipsum sint eiusmod cillum dolore esse sit.
                 </p>
                 <hr />
-                <form class="text-center">
-                  <div class="form-group">
-                    <label for="lastname">
+                <form className="text-center">
+                  <div className="form-group">
+                    <label htmlFor="lastname">
                       <input
                         type="text"
-                        class="form-control"
+                        className="form-control"
                         id="lastname"
                         placeholder="Last name"
                       />
                     </label>
                   </div>
-                  <div class="form-group">
-                    <label for="firstname">
+                  <div className="form-group">
+                    <label htmlFor="firstname">
                       <input
                         type="text"
-                        class="form-control"
+                        className="form-control"
                         id="lastname"
                         placeholder="First name"
                       />
                     </label>
                   </div>
-                  <div class="form-group">
-                    <label for="InputEmail">
+                  <div className="form-group">
+                    <label htmlFor="InputEmail">
                       <input
                         type="email"
-                        class="form-control"
+                        className="form-control"
                         id="email"
                         aria-describedby="emailHelp"
                         placeholder="Email Address"
                       />
                       <small
                         id="emailHelp"
-                        class="form-text text-muted"
+                        className="form-text text-muted"
                       >
                         We'll never share your email with anyone else.
                       </small>
                     </label>
                   </div>
-                  <div class="form-group">
-                    <label for="password">
+                  <div className="form-group">
+                    <label htmlFor="password">
                       <input
                         type="password"
-                        class="form-control"
+                        className="form-control"
                         placeholder="Password"
                       />
                       <small
                         id="emailHelp"
-                        class="form-text text-muted"
+                        className="form-text text-muted"
                       >
                         Choose a more secured password. It's safe
                         anyways.
                       </small>
                     </label>
                   </div>
-                  <button type="submit" class="btn btn-primary">
+                  <button type="submit" className="btn btn-primary">
                     Submit
                   </button>
                 </form>
