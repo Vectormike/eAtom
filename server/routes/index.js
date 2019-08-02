@@ -8,9 +8,7 @@ const router = Router();
 
 // Welcome page
 router.get('/', (req, res) => {
-  res.json({
-    message: 'Hi, welcome!',
-  });
+  res.send("Hi")
 });
 
 // Register user
