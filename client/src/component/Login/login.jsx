@@ -23,15 +23,16 @@ class Login extends Component {
   };
 
   onSubmit = () => {
-    console.log(this.state);
     fetch('http://localhost:5000/login', {
-      method: 'POST',
+      method: 'post',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         email: this.state.signInEmail,
         password: this.state.signInPassword,
-      }),
-    });
+      })      
+    })
+    .then(response => response.json())
+    .then(console.log)
   };
 
   render() {
