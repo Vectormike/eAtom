@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import './login.css';
 import Footer from '../Footer/footer';
 import Navbar from '../Navbar/navbar';
@@ -29,10 +29,14 @@ class Login extends Component {
       body: JSON.stringify({
         email: this.state.signInEmail,
         password: this.state.signInPassword,
-      })      
+      }),
     })
-    .then(response => response.json())
-    .then(console.log)
+      .then(response => response.json())
+      .then(data => {
+        if (data === 'Login succesful') {
+          return <Redirect to="/dashboard" />;
+        }
+      });
   };
 
   render() {
@@ -87,15 +91,14 @@ class Login extends Component {
                       />
                     </label>
                   </div>
-                  <Link to="/dashboard">
-                    <button
-                      type="submit"
-                      onClick={this.onSubmit}
-                      className="btn btn-primary"
-                    >
-                      Submit
-                    </button>
-                  </Link>
+
+                  <button
+                    type="submit"
+                    onClick={this.onSubmit}
+                    className="btn btn-primary"
+                  >
+                    Submit
+                  </button>
                 </form>
               </div>
             </div>
