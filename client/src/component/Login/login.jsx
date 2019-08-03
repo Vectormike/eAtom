@@ -8,14 +8,31 @@ class Login extends Component {
   constructor() {
     super();
 
-    this.state = {};
+    this.state = {
+      signInEmail: '',
+      signInPassword: '',
+    };
   }
 
-  componentDidMount() {
-    fetch('http://localhost:5000/test')
-      .then(response => response.json())
-      .then(console.log);
-  }
+  onEmailChange = event => {
+    this.setState({ signInEmail: event.target.value });
+  };
+
+  onPasswordChange = event => {
+    this.setState({ signInPassword: event.target.value });
+  };
+
+  onSubmit = () => {
+    console.log(this.state);
+    fetch('http://localhost:5000/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: this.state.signInEmail,
+        password: this.state.signInPassword,
+      }),
+    });
+  };
 
   render() {
     return (
@@ -55,6 +72,7 @@ class Login extends Component {
                         id="email"
                         aria-describedby="emailHelp"
                         placeholder="Email Address"
+                        onChange={this.onEmailChange}
                       />
                     </label>
                   </div>
@@ -64,11 +82,16 @@ class Login extends Component {
                         type="password"
                         className="form-control"
                         placeholder="Password"
+                        onChange={this.onPasswordChange}
                       />
                     </label>
                   </div>
                   <Link to="/dashboard">
-                    <button type="submit" className="btn btn-primary">
+                    <button
+                      type="submit"
+                      onClick={this.onSubmit}
+                      className="btn btn-primary"
+                    >
                       Submit
                     </button>
                   </Link>
@@ -152,7 +175,11 @@ class Login extends Component {
                       </small>
                     </label>
                   </div>
-                  <button type="submit" className="btn btn-primary">
+                  <button
+                    type="submit"
+                    onClick={this.onSubmit}
+                    className="btn btn-primary"
+                  >
                     Submit
                   </button>
                 </form>
