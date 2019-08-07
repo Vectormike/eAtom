@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import {} from 'react-router-dom';
 import './login.css';
 import Footer from '../Footer/footer';
 import Navbar from '../Navbar/navbar';
@@ -22,7 +22,8 @@ class Login extends Component {
     this.setState({ signInPassword: event.target.value });
   };
 
-  onSubmit = () => {
+  onSubmit = (e) => {
+    e.preventDefault()
     fetch('http://localhost:5000/login', {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
@@ -32,11 +33,7 @@ class Login extends Component {
       }),
     })
       .then(response => response.json())
-      .then(data => {
-        if (data === 'Login succesful') {
-          return <Redirect to="/dashboard" />;
-        }
-      });
+      .then(console.log);
   };
 
   render() {
@@ -73,8 +70,8 @@ class Login extends Component {
                     <label htmlFor="InputEmail">
                       <input
                         type="email"
-                        className="form-control"
                         id="email"
+                        className="form-control"
                         aria-describedby="emailHelp"
                         placeholder="Email Address"
                         onChange={this.onEmailChange}
@@ -131,7 +128,6 @@ class Login extends Component {
                       <input
                         type="text"
                         className="form-control"
-                        id="lastname"
                         placeholder="Last name"
                       />
                     </label>
