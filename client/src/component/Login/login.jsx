@@ -9,21 +9,47 @@ class Login extends Component {
     super();
 
     this.state = {
-      signInEmail: '',
-      signInPassword: '',
+      lastname: '',
+      firstname: '',
+      email: '',
+      password: '',
     };
   }
 
+  onLastNameChange = event => {
+    this.setState({ lastname: event.target.value });
+  };
+
+  onFirstNameChange = event => {
+    this.setState({ firstname: event.target.value });
+  };
+
   onEmailChange = event => {
-    this.setState({ signInEmail: event.target.value });
+    this.setState({ email: event.target.value });
   };
 
   onPasswordChange = event => {
-    this.setState({ signInPassword: event.target.value });
+    this.setState({ password: event.target.value });
   };
 
-  onSubmit = (e) => {
-    e.preventDefault()
+  onRegisterSubmit = e => {
+    e.preventDefault();
+    fetch('http://localhost:5000/register', {
+      method: 'post',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        lastname: this.state.lastname,
+        firstname: this.state.firstname,
+        email: this.state.email,
+        password: this.state.password,
+      }),
+    })
+      .then(response => response.json())
+      .then(console.log);
+  };
+
+  onLoginSubmit = e => {
+    e.preventDefault();
     fetch('http://localhost:5000/login', {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
@@ -91,7 +117,7 @@ class Login extends Component {
 
                   <button
                     type="submit"
-                    onClick={this.onSubmit}
+                    onClick={this.onLoginSubmit}
                     className="btn btn-primary"
                   >
                     Submit
@@ -129,6 +155,7 @@ class Login extends Component {
                         type="text"
                         className="form-control"
                         placeholder="Last name"
+                        onChange={this.onLastNameChange}
                       />
                     </label>
                   </div>
@@ -139,6 +166,7 @@ class Login extends Component {
                         className="form-control"
                         id="lastname"
                         placeholder="First name"
+                        onChange={this.onFirstNameChange}
                       />
                     </label>
                   </div>
@@ -150,6 +178,7 @@ class Login extends Component {
                         id="email"
                         aria-describedby="emailHelp"
                         placeholder="Email Address"
+                        onChange={this.onEmailChange}
                       />
                       <small
                         id="emailHelp"
@@ -165,6 +194,7 @@ class Login extends Component {
                         type="password"
                         className="form-control"
                         placeholder="Password"
+                        onChange={this.onPasswordChange}
                       />
                       <small
                         id="emailHelp"
@@ -177,7 +207,7 @@ class Login extends Component {
                   </div>
                   <button
                     type="submit"
-                    onClick={this.onSubmit}
+                    onClick={this.onRegisterSubmit}
                     className="btn btn-primary"
                   >
                     Submit
