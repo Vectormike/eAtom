@@ -44,7 +44,7 @@ class Login extends Component {
         password: this.state.password,
       }),
     })
-      .then(response => response.json())
+      .then(response => response.json()) 
       .then(console.log);
   };
 
