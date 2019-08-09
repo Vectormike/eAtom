@@ -67,8 +67,6 @@ class Login extends Component {
       .then(console.log);
   };
 
-  this.state.user ? <Redirect to="/dashboard" />
-
   
   render() {
     return (
