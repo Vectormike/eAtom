@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {} from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import './login.css';
 import Footer from '../Footer/footer';
 import Navbar from '../Navbar/navbar';
@@ -13,6 +13,7 @@ class Login extends Component {
       firstname: '',
       email: '',
       password: '',
+      user: false,
     };
   }
 
@@ -44,8 +45,12 @@ class Login extends Component {
         password: this.state.password,
       }),
     })
-      .then(response => response.json()) 
-      .then(console.log);
+      .then(response => response.json())
+      .then(data => {
+        if (data === 'User Created') {
+          this.setState({ user: true });
+        }
+      });
   };
 
   onLoginSubmit = e => {
@@ -62,6 +67,9 @@ class Login extends Component {
       .then(console.log);
   };
 
+  this.state.user ? <Redirect to="/dashboard" />
+
+  
   render() {
     return (
       <div className="loginRegister">
