@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
 import './login.css';
 import Footer from '../Footer/footer';
 import Navbar from '../Navbar/navbar';
