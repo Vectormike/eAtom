@@ -1,14 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './navbar.scss';
 
 export default function Navbar() {
   return (
-    <nav class="fixed-top navbar navbar-expand-lg navbar-dark bg-dark">
-      <Link class="navbar-brand" to="/">
+    <nav className="fixed-top navbar navbar-expand-lg">
+      <Link className="navbar-brand" to="/">
         eAtom
       </Link>
+
+      <button className="float-right">
+        <i className="fas fa-shopping-cart" />
+      </button>
       <button
-        class="navbar-toggler"
+        className="navbar-toggler"
         type="button"
         data-toggle="collapse"
         data-target="#navbarSupportedContent"
@@ -20,23 +25,23 @@ export default function Navbar() {
       </button>
 
       <div
-        class="collapse navbar-collapse"
+        className="collapse navbar-collapse"
         id="navbarSupportedContent"
       >
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <Link class="nav-link" to="/login">
-              Home <span class="sr-only">(current)</span>
+        <ul className="navbar-nav mr-auto">
+          <li className="nav-item active">
+            <Link className="nav-link" to="/login">
+              Home <span className="sr-only">(current)</span>
             </Link>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="to">
-              Link
+          <li className="nav-item">
+            <a className="nav-link" href="to">
+              Contact
             </a>
           </li>
-          <li class="nav-item dropdown">
+          <li className="nav-item dropdown">
             <a
-              class="nav-link dropdown-toggle"
+              className="nav-link dropdown-toggle"
               href="to"
               id="navbarDropdown"
               role="button"
@@ -44,56 +49,29 @@ export default function Navbar() {
               aria-haspopup="true"
               aria-expanded="false"
             >
-              Dropdown
+              MENU
             </a>
             <div
-              class="dropdown-menu"
+              className="dropdown-menu"
               aria-labelledby="navbarDropdown"
             >
-              <a class="dropdown-item" href="to">
-                Action
+              <a className="dropdown-item" href="to">
+                Men
               </a>
-              <a class="dropdown-item" href="to">
-                Another action
+              <a className="dropdown-item" href="to">
+                Girls
               </a>
-              <div class="dropdown-divider" />
-              <a class="dropdown-item" href="to">
-                Something else here
+              <div className="dropdown-divider" />
+              <a className="dropdown-item" href="to">
+                Women 
               </a>
             </div>
           </li>
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              href="to"
-              tabindex="-1"
-              aria-disabled="true"
-            >
-              Disabled
-            </a>
-          </li>
         </ul>
         <div>
-          <form class="form-inline my-2 my-lg-0">
-            <input
-              class="form-control mr-sm-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button
-              class="btn btn-outline-success my-2 my-sm-0"
-              type="submit"
-            >
-              Search
-            </button>
-          </form>
-          <button class="float-right">
-            <i class="fas fa-shopping-cart" />
-          </button>
           <Link to="/login/">
-            <button class="float-left">
-              <i class="fas fa-user" />
+            <button className="float-left">
+              <i className="fas fa-user" />
             </button>
           </Link>
         </div>
