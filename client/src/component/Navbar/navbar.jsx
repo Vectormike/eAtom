@@ -8,7 +8,9 @@ export default function Navbar() {
       <Link className="navbar-brand" to="/">
         eAtom
       </Link>
-
+      <Link className="" to="/shop">
+        Shop
+      </Link>
       <button className="float-right">
         <i className="fas fa-shopping-cart" />
       </button>
