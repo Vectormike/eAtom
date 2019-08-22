@@ -3,7 +3,6 @@ import './collection-item.scss';
 
 export default function CollectionItem({ id, name, price, imageUrl }) {
   return (
-    <div>
       <div className="collection-item">
         <div
           className="image"
@@ -15,6 +14,5 @@ export default function CollectionItem({ id, name, price, imageUrl }) {
           </div>
         </div>
       </div>
-    </div>
   );
 };

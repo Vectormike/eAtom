@@ -1,11 +1,11 @@
 import React from 'react';
 import CollectionItem from '../CollectionItem/collection-item';
-import '../CollectionView/collection-view.scss';
+import './collection-view.scss';
 
 export default function CollectionView({ title, items }) {
   return (
-    <div className="collection">
-      <h1 className="collection-preview">{title.toUpperCase()}</h1>
+    <div className="collection-preview">
+      <h1 className="title">{title.toUpperCase()}</h1>
       <div className="preview">
         {items
           .filter((item, index) => index < 4)
@@ -13,6 +13,7 @@ export default function CollectionView({ title, items }) {
             <CollectionItem key={id} {...otherProps} />
           ))}
       </div>
+      
     </div>
   );
 }
