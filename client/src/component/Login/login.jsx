@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './login.scss';
 import FormInput from '../FormInput/formInput';
+
 import Footer from '../../component/Footer/footer';
 import Navbar from '../../component/Navbar/navbar';
 
