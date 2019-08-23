@@ -17,22 +17,6 @@ class Login extends Component {
     };
   }
 
-  onLastNameChange = event => {
-    this.setState({ lastname: event.target.value });
-  };
-
-  onFirstNameChange = event => {
-    this.setState({ firstname: event.target.value });
-  };
-
-  onEmailChange = event => {
-    this.setState({ email: event.target.value });
-  };
-
-  onPasswordChange = event => {
-    this.setState({ password: event.target.value });
-  };
-
   onRegisterSubmit = e => {
     e.preventDefault();
     fetch('http://localhost:5000/register', {
