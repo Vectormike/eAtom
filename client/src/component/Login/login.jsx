@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './login.css';
+import './login.scss';
 import FormInput from '../FormInput/formInput';
 import Footer from '../../component/Footer/footer';
 import Navbar from '../../component/Navbar/navbar';
@@ -44,7 +44,7 @@ class Login extends Component {
         <form>
           <label>Email</label>
           <FormInput
-            type="email"
+            type="email" 
             name="email"
             value={this.state.email}
             handleChange={this.handleChange}
