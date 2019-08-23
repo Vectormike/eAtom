@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './login.css';
+import FormInput from '../FormInput/formInput';
 import Footer from '../../component/Footer/footer';
 import Navbar from '../../component/Navbar/navbar';
 
@@ -13,12 +14,14 @@ class Login extends Component {
     };
   }
 
-  onEmailChange = event => {
-    this.setState({ email: event.target.value });
+  onSubmit = e => {
+    e.preventDefault();
+    this.setState({ email: '', password: '' });
   };
 
-  onPasswordChange = event => {
-    this.setState({ password: event.target.value });
+  handleChange = e => {
+    const { name, value } = e.target;
+    this.setState({ [name]: value });
   };
 
   onLoginSubmit = e => {
@@ -37,23 +40,25 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="">
+      <div className="sign-in">
         <form>
           <label>Email</label>
-          <input
+          <FormInput
             type="email"
             name="email"
             value={this.state.email}
+            handleChange={this.handleChange}
             required
           />
           <label>Password</label>
-          <input
+          <FormInput
             name="password"
             type="password"
             value={this.state.password}
+            handleChange={this.handleChange}
             required
           />
-          <input type="submit" value="Submit Form  "/>
+          <input type="submit" value="Submit Form  " />
         </form>
       </div>
     );
