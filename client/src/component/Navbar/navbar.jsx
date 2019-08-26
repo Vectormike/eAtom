@@ -71,16 +71,17 @@ export default function Navbar({ presentUser }) {
             </div>
           </li>
         </ul>
-        <div>
+        <div className="auth">
           {presentUser ? (
-            <button onClick={() => auth.signOut()} className="float-left">
+            <button
+              onClick={() => auth.signOut()}
+              className="float-left"
+            >
               Sign Out <i className="fas fa-sign-out-alt" />
             </button>
           ) : (
-            <Link to="/login/">
-              <button className="float-left">
-                Sign In <i className="fas fa-sign-in-alt" />
-              </button>
+            <Link className="float-left" to="/login/">
+            <button>Sign In <i className="fas fa-sign-in-alt" /></button>
             </Link>
           )}
         </div>
