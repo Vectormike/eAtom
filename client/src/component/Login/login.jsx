@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { signInWithGoogle } from '../../services/firebase/firebase.utils';
 import './login.scss';
 import FormInput from '../FormInput/formInput';
 import Button from '../Button/button';
@@ -44,7 +45,6 @@ class Login extends Component {
     return (
       <div className="sign-in">
         <form>
-          <label>Email</label>
           <FormInput
             type="email"
             name="email"
@@ -53,7 +53,6 @@ class Login extends Component {
             label="email"
             required
           />
-          <label>Password</label>
           <FormInput
             name="password"
             type="password"
@@ -62,6 +61,9 @@ class Login extends Component {
             required
           />
           <Button type="submit">Login</Button>
+          <Button onClick={signInWithGoogle}>
+            Login With Google
+          </Button>
         </form>
       </div>
     );
