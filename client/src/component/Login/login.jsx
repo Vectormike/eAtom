@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import './login.scss';
 import FormInput from '../FormInput/formInput';
+import Button from '../Button/button';
 
-import Footer from '../../component/Footer/footer';
-import Navbar from '../../component/Navbar/navbar';
+// import Footer from '../../component/Footer/footer';
+// import Navbar from '../../component/Navbar/navbar';
 
 class Login extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       email: '',
@@ -25,19 +26,19 @@ class Login extends Component {
     this.setState({ [name]: value });
   };
 
-  onLoginSubmit = e => {
-    e.preventDefault();
-    fetch('http://localhost:5000/login', {
-      method: 'post',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        email: this.state.signInEmail,
-        password: this.state.signInPassword,
-      }),
-    })
-      .then(response => response.json())
-      .then(console.log);
-  };
+  // onLoginSubmit = e => {
+  //   e.preventDefault();
+  //   fetch('http://localhost:5000/login', {
+  //     method: 'post',
+  //     headers: { 'Content-Type': 'application/json' },
+  //     body: JSON.stringify({
+  //       email: this.state.signInEmail,
+  //       password: this.state.signInPassword,
+  //     }),
+  //   })
+  //     .then(response => response.json())
+  //     .then(console.log);
+  // };
 
   render() {
     return (
@@ -45,10 +46,11 @@ class Login extends Component {
         <form>
           <label>Email</label>
           <FormInput
-            type="email" 
+            type="email"
             name="email"
             value={this.state.email}
             handleChange={this.handleChange}
+            label="email"
             required
           />
           <label>Password</label>
@@ -59,7 +61,7 @@ class Login extends Component {
             handleChange={this.handleChange}
             required
           />
-          <input type="submit" value="Submit Form  " />
+          <Button type="submit">Login</Button>
         </form>
       </div>
     );
