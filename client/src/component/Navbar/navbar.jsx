@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { auth } from '../../services/firebase/firebase.utils.js';
 import './navbar.scss';
 
-export default function Navbar() {
+export default function Navbar({ presentUser }) {
   return (
     <nav className="fixed-top navbar navbar-expand-lg">
       <Link className="navbar-brand" to="/">
@@ -65,17 +66,23 @@ export default function Navbar() {
               </a>
               <div className="dropdown-divider" />
               <a className="dropdown-item" href="to">
-                Women 
+                Women
               </a>
             </div>
           </li>
         </ul>
         <div>
-          <Link to="/login/">
-            <button className="float-left">
-              <i className="fas fa-user" />
+          {presentUser ? (
+            <button onClick={() => auth.signOut()} className="float-left">
+              Sign Out <i className="fas fa-sign-out-alt" />
             </button>
-          </Link>
+          ) : (
+            <Link to="/login/">
+              <button className="float-left">
+                Sign In <i className="fas fa-sign-in-alt" />
+              </button>
+            </Link>
+          )}
         </div>
       </div>
     </nav>
