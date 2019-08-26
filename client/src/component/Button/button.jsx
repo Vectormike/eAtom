@@ -1,10 +1,18 @@
 import React from 'react';
-import './button.scss'
+import './button.scss';
 
-
-export default function LoginButton({ children, ...otherProps }) {
+export default function LoginButton({
+  children,
+  isGoogleSignIn,
+  ...otherProps
+}) {
   return (
-    <button className="custom-button" {...otherProps}>
+    <button
+      className={`${
+        isGoogleSignIn ? 'google-sign-in' : ''
+      } custom-button`}
+      {...otherProps}
+    >
       {children}
     </button>
   );
