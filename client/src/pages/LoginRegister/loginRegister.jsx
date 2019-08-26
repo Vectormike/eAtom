@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import './login.css';
-import Login from '../../component/Login/login';
-import Footer from '../../component/Footer/footer';
-import Navbar from '../../component/Navbar/navbar';
 
-class Login extends Component {
+import Login from '../../component/Login/login';
+// import Footer from '../../component/Footer/footer';
+// import Navbar from '../../component/Navbar/navbar';
+
+class LoginRegister extends Component {
   constructor() {
     super();
 
@@ -63,4 +63,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default LoginRegister;
