@@ -4,7 +4,7 @@ import './App.css';
 
 import HomePage from './pages/HomePage/homepage';
 import Shop from './pages/Shop/shop';
-import Login from './pages/Login/login';
+import Login from './pages/LoginRegister/loginRegister';
 import Dashboard from './pages/Dashboard/dashboard';
 
 class App extends Component {
