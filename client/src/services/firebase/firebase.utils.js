@@ -26,13 +26,16 @@ provider.setCustomParameters({
 export const signInWithGoogle = () =>
   auth
     .signInWithPopup(provider)
-    .then(result => {
-      const token = result.credential.accessToken;
-      const user = result.user;
-    })
+    // .then(result => {
+    //   const token = result.credential.accessToken;
+    //   const user = result.user;
+    // })
     .catch(error => {
-      const errorCode = error.errorCode;
-      const errorMessage = error.message;
-      const email = error.email;
-      const credential = error.credential;
+      //   const errorCode = error.errorCode;
+      //   const errorMessage = error.message;
+      //   const email = error.email;
+      //   const credential = error.credential;
+      console.log(error);
     });
+
+export default firebase;
