@@ -24,7 +24,7 @@ class SignUp extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-
+    
     const {
       lastname,
       firstname,
@@ -32,9 +32,9 @@ class SignUp extends Component {
       password,
       confirmPassword,
     } = this.state;
-
+  
     if (password !== confirmPassword) {
-      alert('Passwrd do not match');
+      alert('Password do not match');
       return;
     }
 
@@ -49,10 +49,12 @@ class SignUp extends Component {
       }),
     })
       .then(response => response.json())
-      .then(data => {
-        if (data === 'User Created') {
+      .then(message => {
+        if (message) {
+          console.log(message.message);
         }
-      });
+      })
+      .catch(error => console.error(error));
   };
 
   render() {
@@ -72,7 +74,7 @@ class SignUp extends Component {
             name="lastname"
             value={lastname}
             handleChange={this.handleChange}
-            label="Last name"
+            label="last name"
             required
           />
           <FormInput
@@ -80,7 +82,7 @@ class SignUp extends Component {
             name="firstname"
             value={firstname}
             handleChange={this.handleChange}
-            label="First name"
+            label="first name"
             required
           />
           <FormInput
@@ -88,7 +90,7 @@ class SignUp extends Component {
             name="email"
             value={email}
             onChange={this.handleChange}
-            label="Email"
+            label="email"
             required
           />
           <FormInput
@@ -96,7 +98,7 @@ class SignUp extends Component {
             name="password"
             value={password}
             onChange={this.handleChange}
-            label="Password"
+            label="password"
             required
           />
           <FormInput
@@ -104,7 +106,7 @@ class SignUp extends Component {
             name="confirmPassword"
             value={confirmPassword}
             onChange={this.handleChange}
-            label="Confirm Password"
+            label="confirm Password"
             required
           />
           <Button type="submit">Register</Button>
