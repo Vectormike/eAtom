@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Button from '../Button/button';
 import FormInput from '../FormInput/formInput';
 
+import './signup.scss';
+
 class SignUp extends Component {
   constructor() {
     super();
@@ -15,35 +17,68 @@ class SignUp extends Component {
     };
   }
 
+  handleChange = e => {
+    const { value, name } = e.target;
+    this.setState({ [name]: value });
+  };
+
   handleSubmit = e => {
     e.preventDefault();
 
-    const { lastname, firstname, email, password } = this.state;
+    const {
+      lastname,
+      firstname,
+      email,
+      password,
+      confirmPassword,
+    } = this.state;
 
     if (password !== confirmPassword) {
       alert('Passwrd do not match');
       return;
     }
+
+    fetch('http://localhost:5000/register', {
+      method: 'post',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        lastname: lastname,
+        firstname: firstname,
+        email: email,
+        password: password,
+      }),
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data === 'User Created') {
+        }
+      });
   };
 
-  handleChange = e => {};
-
   render() {
+    const {
+      lastname,
+      firstname,
+      email,
+      password,
+      confirmPassword,
+    } = this.state;
+
     return (
       <div className="sign-up">
         <form className="sign-up-form" onSubmit={this.handleSubmit}>
           <FormInput
             type="text"
-            name=""
-            value={this.state.lastname}
+            name="lastname"
+            value={lastname}
             handleChange={this.handleChange}
             label="Last name"
             required
           />
           <FormInput
             type="text"
-            name=""
-            value={this.state.firstname}
+            name="firstname"
+            value={firstname}
             handleChange={this.handleChange}
             label="First name"
             required
@@ -51,7 +86,7 @@ class SignUp extends Component {
           <FormInput
             type="email"
             name="email"
-            value={this.state.email}
+            value={email}
             onChange={this.handleChange}
             label="Email"
             required
@@ -59,7 +94,7 @@ class SignUp extends Component {
           <FormInput
             type="password"
             name="password"
-            value={this.state.password}
+            value={password}
             onChange={this.handleChange}
             label="Password"
             required
@@ -78,3 +113,5 @@ class SignUp extends Component {
     );
   }
 }
+
+export default SignUp;
