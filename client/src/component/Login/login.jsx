@@ -58,6 +58,7 @@ class Login extends Component {
             type="password"
             value={this.state.password}
             handleChange={this.handleChange}
+            label= "password"
             required
           />
           <div className="buttons">
