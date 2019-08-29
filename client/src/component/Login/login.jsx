@@ -17,34 +17,32 @@ class Login extends Component {
     };
   }
 
-  onSubmit = e => {
-    e.preventDefault();
-    this.setState({ email: '', password: '' });
-  };
-
   handleChange = e => {
     const { name, value } = e.target;
     this.setState({ [name]: value });
   };
 
-  // onLoginSubmit = e => {
-  //   e.preventDefault();
-  //   fetch('http://localhost:5000/login', {
-  //     method: 'post',
-  //     headers: { 'Content-Type': 'application/json' },
-  //     body: JSON.stringify({
-  //       email: this.state.signInEmail,
-  //       password: this.state.signInPassword,
-  //     }),
-  //   })
-  //     .then(response => response.json())
-  //     .then(console.log);
-  // };
+  onhandleSubmit = e => {
+    e.preventDefault();
+    this.setState({ email: '', password: '' });
+    const { email, password } = this.state;
+
+    fetch('http://localhost:5000/login', {
+      method: 'post',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      }),
+    })
+      .then(response => response.json())
+      .then(console.log);
+  };
 
   render() {
     return (
       <div className="sign-in">
-        <form>
+        <form onSubmit={this.onhandleSubmit}>
           <FormInput
             type="email"
             name="email"
@@ -58,7 +56,7 @@ class Login extends Component {
             type="password"
             value={this.state.password}
             handleChange={this.handleChange}
-            label= "password"
+            label="password"
             required
           />
           <div className="buttons">

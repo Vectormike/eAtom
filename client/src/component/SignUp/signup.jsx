@@ -24,7 +24,7 @@ class SignUp extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    
+
     const {
       lastname,
       firstname,
@@ -32,7 +32,7 @@ class SignUp extends Component {
       password,
       confirmPassword,
     } = this.state;
-  
+
     if (password !== confirmPassword) {
       alert('Password do not match');
       return;
