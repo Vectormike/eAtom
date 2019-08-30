@@ -4,10 +4,11 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import { Provider } from 'react-redux';
+import { store } from './services/redux/store';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-  <Provider>
+  <Provider store={store}>
     <Router>
       <App />
     </Router>
