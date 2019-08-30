@@ -1,9 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { auth } from '../../services/firebase/firebase.utils.js';
 import './navbar.scss';
 
-export default function Navbar({ presentUser }) {
+
+const mapStateToProps = state => ({
+  presentUser: state.user.presentUser
+});
+
+function Navbar({ presentUser }) {
   return (
     <nav className="fixed-top navbar navbar-expand-lg">
       <Link className="navbar-brand" to="/">
@@ -81,7 +87,9 @@ export default function Navbar({ presentUser }) {
             </button>
           ) : (
             <Link className="float-left" to="/login/">
-            <button>Sign In <i className="fas fa-sign-in-alt" /></button>
+              <button>
+                Sign In <i className="fas fa-sign-in-alt" />
+              </button>
             </Link>
           )}
         </div>
@@ -89,3 +97,7 @@ export default function Navbar({ presentUser }) {
     </nav>
   );
 }
+
+
+
+export default connect(mapStateToProps)(Navbar);
