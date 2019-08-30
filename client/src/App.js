@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { setCurrentUser } from './services/redux/actions/user.action';
 import './App.css';
 
 import Navbar from './component/Navbar/navbar';
@@ -12,35 +14,27 @@ import {
   createUserProfile,
 } from './services/firebase/firebase.utils';
 
+const mapDispatchToProps = dispatch => ({
+  setPresentUser: user => dispatch(setCurrentUser(user)),
+});
+
 class App extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      presentUser: null,
-    };
-  }
-
   unsubscribeFromAuth = null;
 
   componentDidMount() {
+    const { setCurrentUser } = this.props;
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async user => {
       const userRef = await createUserProfile(user);
 
       if (user) {
         userRef.onSnapshot(snapshot => {
-          this.setState(
-            {
-              presentUser: {
-                id: snapshot.id,
-                ...snapshot.data(),
-              },
-            },
-            () => console.log(this.state),
-          );
+          setCurrentUser({
+            id: snapshot.id,
+            ...snapshot.data(),
+          });
         });
       } else {
-        this.setState({ presentUser: user });
+        setCurrentUser({ user });
       }
     });
   }
@@ -64,4 +58,7 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(
+  null,
+  mapDispatchToProps,
+)(App);
