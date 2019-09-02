@@ -3,7 +3,7 @@ import MenuItem from '../MenuItem/menuItem';
 
 import './directory.scss';
 
-export class Directory extends Component {
+export default class Directory extends Component {
   constructor() {
     super();
 
