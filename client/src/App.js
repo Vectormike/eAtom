@@ -14,27 +14,24 @@ import {
   createUserProfile,
 } from './services/firebase/firebase.utils';
 
-const mapDispatchToProps = dispatch => ({
-  setPresentUser: user => dispatch(setCurrentUser(user)),
-});
 
 class App extends Component {
   unsubscribeFromAuth = null;
 
   componentDidMount() {
-    const { setCurrentUser } = this.props;
+    const { setPresentUser } = this.props;
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async user => {
       const userRef = await createUserProfile(user);
 
       if (user) {
         userRef.onSnapshot(snapshot => {
-          setCurrentUser({
+          setPresentUser({
             id: snapshot.id,
             ...snapshot.data(),
           });
         });
       } else {
-        setCurrentUser({ user });
+        setPresentUser(user);
       }
     });
   }
@@ -46,7 +43,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Navbar presentUser={this.state.presentUser} />
+        <Navbar />
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/shop" component={Shop} />
@@ -57,6 +54,10 @@ class App extends Component {
     );
   }
 }
+
+const mapDispatchToProps = dispatch => ({
+  setPresentUser: user => dispatch(setCurrentUser(user)),
+});
 
 export default connect(
   null,
