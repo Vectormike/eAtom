@@ -2,14 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { auth } from '../../services/firebase/firebase.utils.js';
+import CartIcon from '../CartIcon/cart-icon';
+import CartModal from '../CartModal/cart-modal';
 import './navbar.scss';
 
-
-const mapStateToProps = state => ({
-  presentUser: state.user.presentUser
-});
-
-function Navbar({ presentUser }) {
+function Navbar({ presentUser, hidden }) {
   return (
     <nav className="fixed-top navbar navbar-expand-lg">
       <Link className="navbar-brand" to="/">
@@ -18,9 +15,8 @@ function Navbar({ presentUser }) {
       <Link className="" to="/shop">
         Shop
       </Link>
-      <button className="float-right">
-        <i className="fas fa-shopping-cart" />
-      </button>
+
+      <CartIcon />
       <button
         className="navbar-toggler"
         type="button"
@@ -94,10 +90,14 @@ function Navbar({ presentUser }) {
           )}
         </div>
       </div>
+      {hidden ? null : <CartModal />}
     </nav>
   );
 }
 
-
+const mapStateToProps = state => ({
+  presentUser: state.user.presentUser,
+  hidden: state.cart.hidden,
+});
 
 export default connect(mapStateToProps)(Navbar);
