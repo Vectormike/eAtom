@@ -1,14 +1,15 @@
 import React from 'react';
 import './button.scss';
 
-export default function LoginButton({
+export default function Button({
   children,
   isGoogleSignIn,
+  inverted,
   ...otherProps
 }) {
   return (
     <button
-      className={`${
+      className={`${inverted ? 'inverted' : ''} ${
         isGoogleSignIn ? 'google-sign-in' : ''
       } custom-button`}
       {...otherProps}
