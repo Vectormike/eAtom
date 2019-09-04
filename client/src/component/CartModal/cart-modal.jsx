@@ -19,7 +19,7 @@ function CartModal({ cartItems }) {
 }
 
 const mapStateToProps = state => ({
-  cartItems: state.cartItems,
+  cartItems: state.cart.cartItems,
 });
 
 export default connect(mapStateToProps)(CartModal);
