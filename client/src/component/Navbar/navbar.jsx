@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { auth } from '../../services/firebase/firebase.utils.js';
+import { selectCartHidden } from '../../services/redux/cart.selectors';
+import { selectPresentUser } from '../../services/redux/user.selector';
 import CartIcon from '../CartIcon/cart-icon';
 import CartModal from '../CartModal/cart-modal';
 import './navbar.scss';
@@ -96,8 +98,8 @@ function Navbar({ presentUser, hidden }) {
 }
 
 const mapStateToProps = state => ({
-  presentUser: state.user.presentUser,
-  hidden: state.cart.hidden,
+  presentUser: selectPresentUser(state),
+  hidden: selectCartHidden(state),
 });
 
 export default connect(mapStateToProps)(Navbar);
