@@ -1,5 +1,5 @@
 export const addItemToCart = (initialItems, newItem) => {
-  // Find existing items thhat where added already
+  // Find existing items that where added already
   const existingItem = initialItems.find(
     initialItem => initialItem.id === newItem.id,
   );
