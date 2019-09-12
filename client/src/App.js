@@ -8,7 +8,7 @@ import Navbar from './component/Navbar/navbar';
 import HomePage from './pages/HomePage/homepage';
 import Shop from './pages/Shop/shop';
 import Login from './pages/LoginRegister/loginRegister';
-import Dashboard from './pages/Dashboard/dashboard';
+import Dashboard from './pages/CheckoutPage/checkout';
 import {
   auth,
   createUserProfile,
@@ -48,7 +48,7 @@ class App extends Component {
           <Route exact path="/" component={HomePage} />
           <Route path="/shop" component={Shop} />
           <Route exact path="/login" component={Login} />
-          <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/checkout" component={Dashboard} />
         </Switch>
       </div>
     );
