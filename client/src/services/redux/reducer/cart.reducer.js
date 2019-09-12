@@ -10,12 +10,12 @@ export const cartReducer = (state = initialState, action) => {
   switch (action.type) {
     case TOGGLE_CART:
       return {
-        state,
+        ...state,
         hidden: !state.hidden,
       };
     case ADD_ITEM:
       return {
-        state,
+        ...state,
         cartItems: addItemToCart(state.cartItems, action.payload),
       };
     default:
