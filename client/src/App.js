@@ -14,7 +14,6 @@ import {
   createUserProfile,
 } from './services/firebase/firebase.utils';
 
-
 class App extends Component {
   unsubscribeFromAuth = null;
 
