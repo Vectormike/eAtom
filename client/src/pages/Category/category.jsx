@@ -3,7 +3,7 @@ import React from 'react';
 import CollectionItem from '../../component/Collections/CollectionItem/collection-item';
 
 import { connect } from 'react-redux';
-import { selectCategory } from '../../services/redux/shop.selector';
+import { selectCollection } from '../../services/redux/shop.selector';
 
 import './category.scss';
 
@@ -19,7 +19,7 @@ const Category = ({ category: { title, items } }) => (
 );
 
 const mapStateToProps = (state, ownProps) => ({
-  category: selectCategory(ownProps.match.params.categoryId)(state),
+  category: selectCollection(ownProps.match.params.categoryId)(state),
 });
 
 export default connect(mapStateToProps)(Category);
